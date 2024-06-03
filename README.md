@@ -21,36 +21,37 @@ All plug-ins are developed [PyQGIS](https://docs.qgis.org/3.34/en/docs/pyqgis_de
 
 ## Table of Contents
 
+- [Minimum Requirements](#minimumrequirements)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributors](#contributors)
 - [License](#license)
 
-## Installation
+## Minimum Requirements
 
 In order to run the plug-ins you require:
-* **QGIS $\geq$ 3.9**: Download from the [official site](https://www.python.org/downloads/)
-* **Python $\geq$ 3.9**: Download from the [official site](https://www.python.org/downloads/)
-* **Pyomo $\geq$ 6.4**: Install the library using ``pip`` or ``conda``, following the instructions at the [official site](https://pyomo.readthedocs.io/en/stable/installation.html)
+* ** QGIS $\geq$ 3.0**: Download from the [official site](https://www.qgis.org/es/site/forusers/download.html)
+* ** Pandapower $\geq$ 6.4**: Install the library using ``pip``, following the instructions at the [official site](https://www.pandapower.org/start/). This library is only required for the second plug-in. 
 	* Using pip:
 		```
-		$ pip install pyomo
+		$ pip install pandapower
 		```
-	* Using conda:
 		```
-		$ conda install -c conda-forge pyomo
-		```
-* **Solver(s)**: Find the [supported Pyomo solvers](https://pyomo.readthedocs.io/en/stable/solving_pyomo_models.html#supported-solvers) at the official site or by running:
-	```
-	$ pyomo help --solvers
-	```
-	You may use [Interior Point Optimizer (Ipopt)](https://coin-or.github.io/Ipopt/), which latest realease can be downloaded from the [official github](https://github.com/coin-or/Ipopt)
+
+## Installation
+
+In order to import and manage the plugin-ins you require: 
+
+* Save the plug-ins' folder in the QGIS' Active User Profile.
+* Plug-ins will appear as installed in the QGIS' Plugin manager.
+* Activate the plugin to have them accessible. 
+* Find the plugins as an additional Vector tool. 
+
 
 ## Usage
 
-Find usage examples at ``./AGISTIN tool usage examples.pdf`` ([here](./AGISTIN%20tool%20usage%20examples.pdf))
+Find usage guide at ```` ([here]())
 
-You may find the full documentation at ``./main/docs/_build/html/index.html`` [here](./main/docs/_build/html/index.html)
 
 ## Contributors
 In alphabetical order:
