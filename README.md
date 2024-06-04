@@ -21,7 +21,7 @@ All plug-ins are developed [PyQGIS](https://docs.qgis.org/3.34/en/docs/pyqgis_de
 
 ## Table of Contents
 
-- [Minimum Requirements](#minimumrequirements)
+- [Minimum Requirements](#minimum requirements)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributors](#contributors)
@@ -30,8 +30,8 @@ All plug-ins are developed [PyQGIS](https://docs.qgis.org/3.34/en/docs/pyqgis_de
 ## Minimum Requirements
 
 In order to run the plug-ins you require:
-* ** QGIS $\geq$ 3.0**: Download from the [official site](https://www.qgis.org/es/site/forusers/download.html)
-* ** Pandapower $\geq$ 6.4**: Install the library using ``pip``, following the instructions at the [official site](https://www.pandapower.org/start/). This library is only required for the second plug-in. 
+* **QGIS $\geq$ 3.0**: Download from the [official site](https://www.qgis.org/es/site/forusers/download.html)
+* **Pandapower $\geq$ 6.4**: Install the library using ``pip``, following the instructions at the [official site](https://www.pandapower.org/start/). This library is only required for the second plug-in. 
 	* Using pip:
 		```
 		$ pip install pandapower
