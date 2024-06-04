@@ -27,18 +27,17 @@ All plug-ins are developed [PyQGIS](https://docs.qgis.org/3.34/en/docs/pyqgis_de
 - [License](#license)
 
 
-
 ## Installation
 
-# General Requirements
+### General Requirements
 
 * **QGIS $\geq$ 3.0**: Download from the [official site](https://www.qgis.org/es/site/forusers/download.html)
 
-# Recommended additional plugins:
+### Recommended additional plugins:
 
 * **Plugin Reloader**: Dowload from the [official site](https://plugins.qgis.org/plugins/plugin_reloader/)
 
-# Specific requirement for $\rightarrow$ Weaknesses identification: 
+### Specific requirements for $\rightarrow$ Weaknesses identification: 
 
 * **Pandapower $\geq$ 6.4**: Install the library using ``pip``, following the instructions at the [official site](https://www.pandapower.org/start/). 
 
@@ -47,17 +46,17 @@ All plug-ins are developed [PyQGIS](https://docs.qgis.org/3.34/en/docs/pyqgis_de
 		```
 		$ pip install pandapower
 		```
-# Installation steps: 
+### Installation steps: 
 
 * Download from this repository the required plugin.
-* Unzip the foler
-* Save the plug-ins' folder in the QGIS' Active User Profile.
+* Unzip the folder
+* Save the folder in the QGIS' Active User Profile.
  
 	* Linux: ``C:\Users\USER\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins\ORStools``
 	* Windows: ``C:\Users\USER\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins\ORStools``
 	* Mac OS: ``Library/Application Support/QGIS/QGIS3/profiles/default/python/plugins/ORStools``
 
-If not found, the QGIS' Active User Profile Folder can be accessed throug ``QGIS`` $\blacktrianglerigh$ ``Settings`` $\blacktrianglerigh$ ``User Profile`` $\blacktrianglerigh$ ``Open Active Profile Folder``
+If not found, the QGIS' Active User Profile Folder can be accessed throug ``QGIS`` $\blacktriangleright$ ``Settings`` $\blacktriangleright$ ``User Profile`` $\blacktriangleright$ ``Open Active Profile Folder``
 
 ## Usage
 
@@ -66,6 +65,7 @@ Before using a plugin is recommended to use the Reload Plugin throuhg ``Plugin R
 Find usage guide at ``introduce the directory`` ([here]())
 
 ## Contributors
+
 In alphabetical order:
 
 * Marc Cheah Mañé (marc.cheah@upc.edu)
