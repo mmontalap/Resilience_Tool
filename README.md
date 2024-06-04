@@ -63,6 +63,7 @@ If not found, the QGIS' Active User Profile Folder can be accessed throug ``QGIS
 Before using a plugin, using the Reload Plugin through ``Plugin Reloader`` is recommended. 
 
 Find usage guide at ``./ResilienceUserGuide.pdf`` ([here](./ResilienceUserGuide.pdf))
+
 ## Contributors
 
 In alphabetical order:
@@ -71,7 +72,7 @@ In alphabetical order:
 * Oriol Gomis-Bellmunt (oriol.gomis@upc.edu)
 * Montserrat Montalà-Palau (montserrat.montala@upc.edu)
 
-[<img src="https://citcea.upc.edu/ca/shared/logos/logo_upc-svg.png" height="64px" align="center" alt="CITCEA-UPC logo">](https://citcea.upc.edu/ca) [<img src="https://citcea.upc.edu/ca/shared/logos/logocitceaupc.png" height="64px" align="center" alt="UPC logo">](https://www.upc.edu/ca)
+[<img src="https://citcea.upc.edu/ca/shared/logos/logocitceaupc.png" height="64px" align="center" alt="UPC logo">](https://citcea.upc.edu/ca)        [<img src="https://citcea.upc.edu/ca/shared/logos/logo_upc-svg.png" height="64px" align="center" alt="CITCEA-UPC logo">](https://www.upc.edu/ca)
 
 
 ## License
