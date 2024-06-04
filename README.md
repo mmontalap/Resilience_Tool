@@ -62,7 +62,7 @@ If not found, the QGIS' Active User Profile Folder can be accessed throug ``QGIS
 
 Before using a plugin, using the Reload Plugin through ``Plugin Reloader`` is recommended. 
 
-Find usage guide at ``./ResilienceUserGuide.pdf`` ([here]()) ([here](./ResilienceUserGuide.pdf))
+Find usage guide at ``./ResilienceUserGuide.pdf`` ([here](./ResilienceUserGuide.pdf))
 ## Contributors
 
 In alphabetical order:
