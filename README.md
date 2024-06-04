@@ -21,43 +21,58 @@ All plug-ins are developed [PyQGIS](https://docs.qgis.org/3.34/en/docs/pyqgis_de
 
 ## Table of Contents
 
-- [Minimum Requirements](#minimum requirements)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributors](#contributors)
 - [License](#license)
 
-## Minimum Requirements
 
-In order to run the plug-ins you require:
+
+## Installation
+
+# General Requirements
+
 * **QGIS $\geq$ 3.0**: Download from the [official site](https://www.qgis.org/es/site/forusers/download.html)
-* **Pandapower $\geq$ 6.4**: Install the library using ``pip``, following the instructions at the [official site](https://www.pandapower.org/start/). This library is only required for the second plug-in. 
+
+# Recommended additional plugins:
+
+* **Plugin Reloader**: Dowload from the [official site](https://plugins.qgis.org/plugins/plugin_reloader/)
+
+# Specific requirement for $\rightarrow$ Weaknesses identification: 
+
+* **Pandapower $\geq$ 6.4**: Install the library using ``pip``, following the instructions at the [official site](https://www.pandapower.org/start/). 
+
 	* Using pip:
+
 		```
 		$ pip install pandapower
 		```
-## Installation
+# Installation steps: 
 
-In order to import and manage the plugin-ins you require: 
-
+* Download from this repository the required plugin.
+* Unzip the foler
 * Save the plug-ins' folder in the QGIS' Active User Profile.
-* Plug-ins will appear as installed in the QGIS' Plugin manager.
-* Activate the plugin to have them accessible. 
-* Find the plugins as an additional Vector tool. 
+ 
+	* Linux: ``C:\Users\USER\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins\ORStools``
+	* Windows: ``C:\Users\USER\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins\ORStools``
+	* Mac OS: ``Library/Application Support/QGIS/QGIS3/profiles/default/python/plugins/ORStools``
 
+If not found, the QGIS' Active User Profile Folder can be accessed throug ``QGIS`` $\blacktrianglerigh$ ``Settings`` $\blacktrianglerigh$ ``User Profile`` $\blacktrianglerigh$ ``Open Active Profile Folder``
 
 ## Usage
 
-Find usage guide at ``introduce the directory`` ([here]())
+Before using a plugin is recommended to use the Reload Plugin throuhg ``Plugin Reloader`` 
 
+Find usage guide at ``introduce the directory`` ([here]())
 
 ## Contributors
 In alphabetical order:
 
-[<img src="https://citcea.upc.edu/ca/shared/logos/logocitceaupc.png" height="64px" align="center" alt="CITCEA-UPC logo">](https://citcea.upc.edu/ca)
 * Marc Cheah Mañé (marc.cheah@upc.edu)
 * Oriol Gomis-Bellmunt (oriol.gomis@upc.edu)
 * Montserrat Montalà-Palau (montserrat.montala@upc.edu)
+
+[<img src="https://citcea.upc.edu/ca/shared/logos/logocitceaupc.png" height="64px" align="center" alt="CITCEA-UPC logo">](https://citcea.upc.edu/ca)
 
 
 ## License
