@@ -36,8 +36,6 @@ In order to run the plug-ins you require:
 		```
 		$ pip install pandapower
 		```
-		```
-
 ## Installation
 
 In order to import and manage the plugin-ins you require: 
@@ -50,13 +48,13 @@ In order to import and manage the plugin-ins you require:
 
 ## Usage
 
-Find usage guide at ```` ([here]())
+Find usage guide at ``introduce the directory`` ([here]())
 
 
 ## Contributors
 In alphabetical order:
 
-[<img src="https://citcea.upc.edu/ca/shared/logos/logocitceaupc.png" height="32px" align="center" alt="CITCEA-UPC logo">](https://citcea.upc.edu/ca)
+[<img src="https://citcea.upc.edu/ca/shared/logos/logocitceaupc.png" height="64px" align="center" alt="CITCEA-UPC logo">](https://citcea.upc.edu/ca)
 * Marc Cheah Mañé (marc.cheah@upc.edu)
 * Oriol Gomis-Bellmunt (oriol.gomis@upc.edu)
 * Montserrat Montalà-Palau (montserrat.montala@upc.edu)
