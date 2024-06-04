@@ -9,9 +9,9 @@ The Task 1.4 Network Resilience is aimed to evalaute and increase **network's re
 * **Impact Evaluation**, resilience should also consider the vulnerabilities of the nework. This plug-in allows the calculation the each element's impact through an OPF approach. 
 * **Risk Assesment and Resilience Index**, considering hazards that might affect a network and its vulnerabilities, this plug-in allows the identification of the amount of energy at risk in each element and the resilience index of the whole network.  
 
-All plug-ins are developed [PyQGIS](https://docs.qgis.org/3.34/en/docs/pyqgis_developer_cookbook/index.html) and run in [Python](https://www.python.org/)
+All plug-ins are developed in [PyQGIS](https://docs.qgis.org/3.34/en/docs/pyqgis_developer_cookbook/index.html) and run in [Python](https://www.python.org/)
 
-[<img src="https://autogis-site.readthedocs.io/en/2019/_images/L7-01-overview-01-pyqgis.svg" height="50px" align="left" alt="Python logo">](https://docs.qgis.org/3.34/en/docs/pyqgis_developer_cookbook/index.html) [<img src="https://www.python.org/static/img/python-logo.png" height="50px" align="left" alt="Python logo">](https://www.python.org/)
+[<img src="https://autogis-site.readthedocs.io/en/2019/_images/L7-01-overview-01-pyqgis.svg" height="50px" align="left" alt="PyGIS logo">](https://docs.qgis.org/3.34/en/docs/pyqgis_developer_cookbook/index.html) [<img src="https://www.python.org/static/img/python-logo.png" height="50px" align="left" alt="Python logo">](https://www.python.org/)
 
 <br>
 <br>
@@ -48,7 +48,7 @@ All plug-ins are developed [PyQGIS](https://docs.qgis.org/3.34/en/docs/pyqgis_de
 		```
 ### Plugin Installation steps: 
 
-* Download from this repository the required plugin.
+* Download from this repository the latest version.
 * Unzip the folder
 * Save the folder in the QGIS' Active User Profile.
  
@@ -71,7 +71,7 @@ In alphabetical order:
 * Oriol Gomis-Bellmunt (oriol.gomis@upc.edu)
 * Montserrat Montalà-Palau (montserrat.montala@upc.edu)
 
-[<img src="https://citcea.upc.edu/ca/shared/logos/logocitceaupc.png" height="64px" align="center" alt="CITCEA-UPC logo">](https://citcea.upc.edu/ca)
+[<img src="https://citcea.upc.edu/ca/shared/logos/logo_upc-svg.png" height="64px" align="center" alt="CITCEA-UPC logo">](https://citcea.upc.edu/ca) [<img src="https://citcea.upc.edu/ca/shared/logos/logocitceaupc.png" height="64px" align="center" alt="UPC logo">](https://www.upc.edu/ca)
 
 
 ## License
