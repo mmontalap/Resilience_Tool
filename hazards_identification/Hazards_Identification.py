@@ -263,10 +263,12 @@ class HazardIden:
             with open(filename, 'w') as output_file:
             
                 # Takes the layers of the selected case studies selected by the user
-                selectedLayerIndex_1 = self.dlg.comboBox.currentIndex()
-                selectedLayerIndex_2 = self.dlg.comboBox_2.currentIndex()
+                # selectedLayerIndex_1 = self.dlg.comboBox.currentIndex()
+                # selectedLayerIndex_2 = self.dlg.comboBox_2.currentIndex()
                 selectedLayer_1 = layers[selectedLayerIndex_1].layer()
                 selectedLayer_2 = layers[selectedLayerIndex_2].layer()
+                features_num = selectedLayer_1.featureCount() + selectedLayer_1.featureCount()
+                hazards_num = n
                 
                 ##### IDENTIFY AND PLOT VULNERABILITIES 
                 # Buses 
@@ -343,7 +345,7 @@ class HazardIden:
                     geom = x.geometry() 
                     # Divide the geometry in equal segments 
                     for line in geom.parts():
-                        a = x[0]
+                        a = x['Line_Name']
                         linepartgeom = QgsGeometry.fromPolyline(line)
                         partlength = linepartgeom.length()
                         nsegments = math.ceil(partlength / distance)
@@ -375,6 +377,10 @@ class HazardIden:
                 
                 selectedLayer_1 = newLayer_sub
                 selectedLayer_2 = newLayer_PL
+                
+                QgsProject.instance().addMapLayer(newLayer_sub) 
+                QgsProject.instance().addMapLayer(newLayer_PL) 
+                                
                                
                 ext_1 = selectedLayer_1.extent()                                                                                    #added 18/12/2020 - MMP: creates the extent of buses
                 ext_2 = selectedLayer_2.extent()                                                                                    #added 18/12/2020 - MMP: creates the extent of power lines
@@ -399,7 +405,7 @@ class HazardIden:
                             selectedLayer_1.updateFeature(sl)                               
                 
                 ## Power Lines
-                joinField = 'Name'
+                joinField = 'Line_Name'
                 targetField = 'Line_Name'
                 results = processing.run("native:joinattributestable", {'INPUT':selectedLayer_2,'FIELD':targetField,'INPUT_2':lyr_powerlines_vul,'FIELD_2':joinField,'FIELDS_TO_COPY':[],'METHOD':0,'DISCARD_NONMATCHING':False,'PREFIX':'','OUTPUT': 'TEMPORARY_OUTPUT'})
                 results = results['OUTPUT']
@@ -412,8 +418,8 @@ class HazardIden:
                     for sl in selectedLayer_2.getFeatures():
                         if sl[str(selectedLayer_2_names[i])] == NULL:
                             sl[str(selectedLayer_2_names[i])] = 0
-                            selectedLayer_2.updateFeature(sl)                                
-                                   
+                            selectedLayer_2.updateFeature(sl) 
+                            
                 i = -1
                 for child in root.children():                                                                                       #added 15/12/2023 - MMP: select one hazard to analyze
                     i = i + 1
@@ -432,9 +438,9 @@ class HazardIden:
                         sl[str(hazards_names[i])] = 0
                         selectedLayer_2.updateFeature(sl)
                                                           
-                    for sl in selectedLayer_2.getFeatures():
-                        sl[str(hazards_names[i])] = 0
-                        selectedLayer_2.updateFeature(sl)
+                    # for sl in selectedLayer_2.getFeatures():   ## comentat 23/01/2025
+                        # sl[str(hazards_names[i])] = 0
+                        # selectedLayer_2.updateFeature(sl)
                     
                     if isinstance(child, QgsLayerTreeLayer):                                                                                                                                                                                #added 18/12/2023
                         hzr_lay =  child.layer()                                                                                                                                                                                            #added 18/12/2023 - MMP: take a layer of the hazards   
@@ -445,17 +451,27 @@ class HazardIden:
                                         f[str(hazards_names[i])] = a[str(season)]                                                                                                                                                           #added 18/12/2023 - MMP: return 'YES' if both layers intersect
                                     else:
                                         f[str(hazards_names[i])] = f[str(hazards_names[i])]                                                                                                                                                 #added 18/12/2023 - MMP: return 'YES' if both layers intersect
-                                    f['Total_risk'] = f['Total_risk'] + f[str(hazards_names[i])]*f[str(hazards_names[i]+'_likelihood')]*f[str(hazards_names[i]+'_damage')]                                                                  # Aquest risc total es calcula com la suma dels riscs 
+                                    # f['Total_risk'] = f['Total_risk'] + f[str(hazards_names[i])]*f[str(hazards_names[i]+'_likelihood')]*f[str(hazards_names[i]+'_damage')]                                                                  # Aquest risc total es calcula com la suma dels riscs 
                                     selectedLayer_1.updateFeature(f)                                                                                                                                                                        #added 18/12/2023 - MMP: update the features
                             for g in selectedLayer_2.getFeatures():                                                                                                                                                                         #added 18/12/2023 - MMP: obtain the features (goemetry) of the case study
                                 if a.geometry().intersects(g.geometry()):                                                                                                                                                                   #added 18/12/2023 - MMP: compare the geometry of the selected hazard w/ the geometry of the case study
                                     if a[str(season)] > g[str(hazards_names[i])]:
                                         g[str(hazards_names[i])] = a[str(season)]                                                                                                                                                           #added 18/12/2023 - MMP: return 'YES' if both layers intersect
                                     else:
-                                        g[str(hazards_names[i])] = g[str(hazards_names[i])]                                                                                                                                                 #added 18/12/2023 - MMP: return 'YES' if both layers intersect
-                                    g['Total_risk'] = g['Total_risk'] + g[str(hazards_names[i])]*g[str(hazards_names[i]+'_likelihood')]*g[str(hazards_names[i]+'_damage')]*g['Per_TotLen']                                                  # Aquest risc total es calcula com la suma dels riscs
-                                    selectedLayer_2.updateFeature(g)                                                                                                                                                                        #added 18/12/2023 - MMP: update the features      
-                                               
+                                        g[str(hazards_names[i])] = g[str(hazards_names[i])] 
+                                    selectedLayer_2.updateFeature(g)   
+                        
+                        # Following two loops added 24/01 to minimize the problems in case of intersecting in more than one part
+                        
+                        for f in selectedLayer_1.getFeatures(): 
+                            f['Total_risk'] = f['Total_risk'] + f[str(hazards_names[i])]*f[str(hazards_names[i]+'_likelihood')]*f[str(hazards_names[i]+'_damage')]                                                                  # Aquest risc total es calcula com la suma dels riscs 
+                            selectedLayer_1.updateFeature(f)
+                    
+                        for g in selectedLayer_2.getFeatures():
+                            g['Total_risk'] = g['Total_risk'] + g[str(hazards_names[i])]*g[str(hazards_names[i]+'_likelihood')]*g[str(hazards_names[i]+'_damage')] *g['Per_TotLen']                                                  # Aquest risc total es calcula com la suma dels riscs
+                            selectedLayer_2.updateFeature(g)      
+                    
+                                              
                 ##### CLEANING RESULTS ####
                 # Buses
                 # Join attributes thorugh location
@@ -475,9 +491,34 @@ class HazardIden:
                 selectedLayer_1_plot.setName('Substations')
                 
                 # Power Lines
-                # Join attributes thorugh location
-                Sum_TotalRisk_PL = processing.run("qgis:joinbylocationsummary", {'INPUT': selectedLayer_2,'PREDICATE':[2],'JOIN':selectedLayer_2,'JOIN_FIELDS':['Total_risk'],'SUMMARIES':[5],'DISCARD_NONMATCHING':False,'OUTPUT':'TEMPORARY_OUTPUT'})
-                Sum_TotalRisk_PL = Sum_TotalRisk_PL['OUTPUT']                
+                # Join attributes thorugh location            
+                               
+                               
+                # Create a new empty layer for the buffered features (selectlayer_3)
+                selectLayer_3 = QgsVectorLayer('Polygon?crs=' + selectedLayer_2.crs().toWkt(), 'selectLayer_3', 'memory')
+                provider = selectLayer_3.dataProvider()
+
+                # Create the fields for selectlayer_3, copy them from selectlayer_2
+                provider.addAttributes(selectedLayer_2.fields())
+                selectLayer_3.updateFields()
+
+                # Iterate over the selected features from selectlayer_2
+                for feature in selectedLayer_2.getFeatures():
+                    # Create a buffer of each feature (buffer size can be adjusted, e.g., 100 units)
+                    buffer = feature.geometry().buffer(100, 5)  # 100 units buffer, with 5 segments per quarter circle
+                    # Create a new feature with the buffer geometry
+                    buffer_feature = QgsFeature()
+                    buffer_feature.setGeometry(buffer)
+                    buffer_feature.setAttributes(feature.attributes())
+                    
+                    # Add the buffered feature to selectlayer_3
+                    provider.addFeature(buffer_feature)
+                        
+                                        
+                Sum_TotalRisk_PL = processing.run("qgis:joinbylocationsummary", {'INPUT': selectedLayer_2,'PREDICATE':[5],'JOIN':selectLayer_3,'JOIN_FIELDS':['Total_risk'],'SUMMARIES':[5],'DISCARD_NONMATCHING':False,'OUTPUT':'TEMPORARY_OUTPUT'})
+                Sum_TotalRisk_PL = Sum_TotalRisk_PL['OUTPUT']   
+
+                ### POSSIBLE ERROR AQUÍ"
                                
                 # Remove duplicated geometries
                 selectedLayer_2_plot = processing.run("native:deleteduplicategeometries", {'INPUT':Sum_TotalRisk_PL,'OUTPUT':'TEMPORARY_OUTPUT'})
@@ -490,6 +531,10 @@ class HazardIden:
                 selectedLayer_2_plot = selectedLayer_2_plot['OUTPUT'] 
                 
                 selectedLayer_2_plot.setName('Power Lines')
+                
+                
+                ###############              
+                
                 
                 
                 ######### PLOT ####
@@ -567,7 +612,7 @@ class HazardIden:
                     p = p + b['Total_risk']
                 
                 Energy_risk = q + p
-                Resilience = math.ceil(((1 - (Energy_risk/energy))*100)*100)/100
+                Resilience = math.ceil(((1 - (Energy_risk/(energy*features_num*hazards_num)))*100)*100)/100
                 
                 
                 ###### DATA TO EXCEL ######                
